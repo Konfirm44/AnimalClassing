@@ -1,0 +1,11 @@
+ok fajnie
+
+{% if images %}
+    <ul>
+    {% for n in images %}
+    <li><a href="/media/{{ n.image }}/">{{ n.title }}</a></li>
+    {% endfor %}
+    </ul>
+{% else %}
+    <p>No images are available.</p>
+{% endif %}
