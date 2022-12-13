@@ -2,6 +2,7 @@
 __pycache__/
 web/__pycache__/
 AnimalClassing/__pycache__/
+uploads/
 *.py[cod]
 *$py.class
 
