@@ -5,14 +5,18 @@ from django.utils import timezone
 # Create your views here.
 
 from django.http import HttpResponse
+from django.contrib.auth.decorators import login_required
 
 
+@login_required(login_url='/login')
 def index(request):
     images = Image.objects.all()
-    context = {'images': images}
+    user = request.user.username
+    context = {'images': images, 'user': user}
     return render(request, 'index.html', context)
 
-    
+
+@login_required(login_url='/login')
 def add(request): 
     if request.method == 'POST':
         form = ImageForm(request.POST, request.FILES)
