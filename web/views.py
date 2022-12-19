@@ -8,7 +8,7 @@ from django.http import HttpResponse
 from django.contrib.auth.decorators import login_required
 
 
-@login_required(login_url='/login')
+@login_required
 def index(request):
     images = Image.objects.all()
     user = request.user.username
@@ -16,7 +16,7 @@ def index(request):
     return render(request, 'index.html', context)
 
 
-@login_required(login_url='/login')
+@login_required
 def add(request): 
     if request.method == 'POST':
         form = ImageForm(request.POST, request.FILES)
