@@ -10,7 +10,7 @@ from django.contrib.auth.decorators import login_required
 
 @login_required
 def index(request):
-    images = Image.objects.all()
+    images = Image.objects.filter(user=request.user)
     user = request.user.username
     context = {'images': images, 'user': user}
     return render(request, 'index.html', context)
