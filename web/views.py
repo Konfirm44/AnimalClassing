@@ -24,12 +24,13 @@ def add(request):
         if form.is_valid():
             form = form.save(commit=False)
             form.dateAdded = timezone.now()
+            form.user = request.user
             form.save()
             return redirect('success')
     else:
         form = ImageForm()
     return render(request, 'add.html', {'form': form})
  
- 
+
 def success(request):
     return render(request, 'success.html')
