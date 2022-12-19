@@ -32,4 +32,4 @@ def add(request):
  
  
 def success(request):
-    return HttpResponse('successfully uploaded')
+    return render(request, 'success.html')
