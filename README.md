@@ -8,4 +8,4 @@ TO DO LIST:
 7. ~~Admin - usuwanie zdjęć z bazy (może done)~~
 8. Dodanie sieci neuronowej, która przeprowadzi klasyfikację obrazu
 9. Zmiana hasła
-10. Wyświetl status zdjęcia
+10. ~~Wyświetl status zdjęcia~~
