@@ -1,0 +1,15 @@
+<p>Zalogowany jako: {{user}}</p>
+
+<a href="/add">Dodaj mi zdjęcie</a>
+
+{% if images %}
+    <ul>
+    {% for n in images %}
+    <li><a href="/media/{{ n.image }}/">{{ n.title }}</a></li>
+    {% endfor %}
+    </ul>
+{% else %}
+    <p>No images are available.</p>
+{% endif %}
+
+<a href="/logout">Wyloguj się</a>

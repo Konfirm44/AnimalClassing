@@ -1,15 +1,25 @@
-<p>Zalogowany jako: {{user}}</p>
+{% extends "base.html" %}
 
-<a href="/add">Dodaj mi zdjęcie</a>
+{% block content %}
 
-{% if images %}
-    <ul>
-    {% for n in images %}
-    <li><a href="/media/{{ n.image }}/">{{ n.title }}</a></li>
-    {% endfor %}
-    </ul>
-{% else %}
-    <p>No images are available.</p>
-{% endif %}
+<div class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
+    <h2 class="m-0 font-weight-bold text-primary">Twoje zdjecia</h2>
+    <a href="/add" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm"><i
+            class="fas fa-download fa-sm text-white-50"></i> Dodaj zdjęcie</a>
+</div>
+<!-- Card Body -->
+<div class="card-body">
+    <div class="chart-area">
+        {% if images %}
+        <ul>
+            {% for n in images %}
+            <li><a href="/media/{{ n.image }}/">{{ n.title }}</a></li>
+            {% endfor %}
+        </ul>
+        {% else %}
+        <p>Brak zdjęć</p>
+        {% endif %}
+    </div>
+</div>
 
-<a href="/accounts/logout">Wyloguj się</a>
+{% endblock %}

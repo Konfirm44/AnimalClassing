@@ -1,0 +1,19 @@
+.logo {
+  width:100%;
+  height:100%;
+  padding:15px;
+  align-self: center;
+}
+
+.footer_custom {
+  position: fixed !important; 
+  bottom: 0 !important;
+  width: 100% !important;
+  align-items: center !important;
+  padding: 1rem 0;
+}
+
+.footer_text {
+  text-align: center;
+  padding-right: 15rem;
+}

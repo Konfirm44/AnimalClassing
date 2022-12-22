@@ -1,7 +1,19 @@
-<a href="/">Wracaj do przeglądania</a>
+{% extends "base.html" %}
 
-<form method = "post" enctype="multipart/form-data">
+{% block content %}
+
+<div
+    class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
+    <h2 class="m-0 font-weight-bold text-primary">Dodaj zdjęcie</h2>
+</div>
+<!-- Card Body -->
+<div class="card-body">
+    <div class="chart-area">
+
+<form class="myForm" method="post" enctype="multipart/form-data">
     {% csrf_token %}
     {{ form.as_p }}
-    <button type="submit">Upload</button>
+    <button class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm" type="submit">Dodaj</button>
 </form>
+
+{% endblock %}
