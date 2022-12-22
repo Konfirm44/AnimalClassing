@@ -20,7 +20,6 @@ def getOldestUnclassifiedImage(conn):
 
 
 def getClassification(imgPath):
-    #TODO: throw if imgPath is invalid
     #TODO: call the neural network
     result = "classified"
     return result
