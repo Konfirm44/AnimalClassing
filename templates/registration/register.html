@@ -1,8 +1,19 @@
-<!--Register-->
-<h1>Register</h1>
-<form method="POST">
+{% extends "base_login.html" %}
+
+{% block content %}
+<div class="text-center">
+    <h1 class="h4 text-gray-900 mb-4">Welcome!</h1>
+</div>
+<form class="user" method="post">
     {% csrf_token %}
-    {{ register_form }}
-    <button type="submit">Register</button>
+    <div class="form-group">
+        {{ register_form }}
+    </div>
+    </br>
+    <input type="submit" value="Register" class="btn btn-sm btn-primary shadow-sm submit_long_button">
+    <input type="hidden" name="next" value="{{ next }}">
 </form>
+<hr>
 <p class="text-center">If you already have an account, <a href="/">login</a> instead.</p>
+
+{% endblock %}

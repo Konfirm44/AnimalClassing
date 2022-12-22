@@ -3,9 +3,9 @@
 {% block content %}
 
 <div class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
-    <h2 class="m-0 font-weight-bold text-primary">Twoje zdjecia</h2>
+    <h2 class="m-0 font-weight-bold text-primary">Your images</h2>
     <a href="/add" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm"><i
-            class="fas fa-download fa-sm text-white-50"></i> Dodaj zdjęcie</a>
+            class="fas fa-download fa-sm text-white-50"></i> Add image</a>
 </div>
 
 
@@ -20,31 +20,23 @@
                     <th>Classified</th>
                 </tr>
             </thead>
-            <!-- <tfoot>
-                <tr>
-                    <th>Title</th>
-                    <th>Added</th>
-                    <th>Classification</th>
-                    <th>Classified</th>
-                </tr>
-            </tfoot> -->
             <tbody>
                 {% if images %}
-                    {% for n in images %}
-                    <tr>
-                        <td><a href="/media/{{ n.image }}/">{{ n.title }}</a></td>
-                        <td>{{ n.dateAdded }}</td>
-                        <td>{{ n.classification }}</td>
-                        <td>{{ n.dateClassified }}</td>
-                    </tr>
-                    {% endfor %}
+                {% for n in images %}
+                <tr>
+                    <td><a href="/media/{{ n.image }}/">{{ n.title }}</a></td>
+                    <td>{{ n.dateAdded }}</td>
+                    <td>{{ n.classification }}</td>
+                    <td>{{ n.dateClassified }}</td>
+                </tr>
+                {% endfor %}
                 {% else %}
-                    <td>Brak zdjęć</td>
-                    <td>Brak daty dodania</td>
-                    <td>Brak klasyfikacji</td>
-                    <td>Brak daty klasyfikacji</td>
+                <td>No images</td>
+                <td></td>
+                <td></td>
+                <td></td>
                 {% endif %}
-               
+
             </tbody>
         </table>
     </div>

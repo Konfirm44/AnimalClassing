@@ -19,8 +19,7 @@
 }
 
 .submit_long_button{
-padding-left: 4.6rem !important;  
-padding-right: 4.6rem !important;
+width: 100% !important;
 }
 
 .centerd_form{

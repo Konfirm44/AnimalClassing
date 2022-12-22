@@ -2,7 +2,7 @@
 
 {% block content %}
 <div class="text-center">
-    <h1 class="h4 text-gray-900 mb-4">Witamy z powrotem!</h1>
+    <h1 class="h4 text-gray-900 mb-4">Welcome Back!</h1>
 </div>
 <form class="user centerd_form" method="post" action="{% url 'login' %}">
     {% csrf_token %}
@@ -11,7 +11,7 @@
         {{ form.username }}
     </div>
     <div class="form-group">
-        Hasło</br>
+        Password</br>
         {{ form.password }}
     </div>
     </br>
@@ -20,10 +20,10 @@
 </form>
 <hr>
 <div class="text-center">
-    <a class="small" href="{% url 'password_reset' %}">Nie pamiętasz hasła?</a>
+    <a class="small" href="{% url 'password_reset' %}">Forgot Password?</a>
 </div>
 <div class="text-center">
-    <a class="small" href="../register">Zarejestruj się!</a>
+    <a class="small" href="../register">Create an Account!</a>
 </div>
 
 {% if form.errors %}
