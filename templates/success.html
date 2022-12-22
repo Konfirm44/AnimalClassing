@@ -1,5 +1,14 @@
-<p>
-    success!
-</p>
+{% extends "base.html" %}
 
-<a href="/">Wróć na główną</a>
+{% load static %}
+
+{% block content %}
+
+<div class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
+    <h2 class="m-0 font-weight-bold text-primary">Sukces!</h2>
+    <a href="/" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm">Powrót</a>
+</div>
+
+<img class="logo" src="{% static 'img/ok_emoji.jpg' %}">
+
+{% endblock %}
