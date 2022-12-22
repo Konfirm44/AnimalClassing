@@ -1,5 +1,6 @@
 from sqlite3 import connect, Error
 from datetime import datetime
+from time import sleep
 
 def create_connection(db_file):
     conn = None
@@ -14,8 +15,9 @@ def create_connection(db_file):
 def getOldestUnclassifiedImage(conn):
     cur = conn.cursor()
     cur.execute("SELECT * FROM web_image WHERE classification = \'waiting for classification\' ORDER BY dateAdded LIMIT 1")
-
-    return cur.fetchone()
+    result = cur.fetchone()
+    cur.close()
+    return result
 
 
 def getClassification(imgPath):
@@ -39,8 +41,8 @@ def classifyImage(row, asInProgress = False):
 def updateImage(result, conn):
     id, classification = result
     now = datetime.now()
-    cur = conn.cursor()
-    cur.execute(f"UPDATE web_image SET classification = '{classification}', dateClassified = '{now}' WHERE id = {id};")
+    conn.execute(f"UPDATE web_image SET classification = '{classification}', dateClassified = '{now}' WHERE id = {id};")
+    conn.commit()
     print(f"{id} : {classification} : {now}")
 
 
@@ -48,16 +50,19 @@ def main():
     database = "db.sqlite3"
     conn = create_connection(database)
     with conn:
-        img = getOldestUnclassifiedImage(conn)
+        while (True):
+            img = getOldestUnclassifiedImage(conn)
 
-        if (img is not None):
-            imgInProgress = classifyImage(img, True)
-            updateImage(imgInProgress, conn)
+            if (img is not None):
+                imgInProgress = classifyImage(img, True)
+                updateImage(imgInProgress, conn)
 
-            imgClassified = classifyImage(img)
-            updateImage(imgClassified, conn)
-        else:
-            print("no image to classify")
+                imgClassified = classifyImage(img)
+                updateImage(imgClassified, conn)
+            else:
+                print("no image to classify")
+            
+            sleep(0.5)
         
 
 if __name__ == '__main__':

@@ -3,10 +3,9 @@ from .models import Image
 from .forms import ImageForm
 from django.contrib.auth.forms import UserCreationForm
 from django.contrib.auth import login
-from django.utils import timezone
 from django.contrib import messages
 from django.contrib.auth.decorators import login_required
-
+from datetime import datetime
 
 @login_required
 def index(request):
@@ -23,7 +22,7 @@ def add(request):
 
         if form.is_valid():
             form = form.save(commit=False)
-            form.dateAdded = timezone.now()
+            form.dateAdded = datetime.now()
             form.user = request.user
             form.save()
             return redirect('success')
