@@ -11,8 +11,8 @@ from django.contrib.auth.decorators import login_required
 @login_required
 def index(request):
     images = Image.objects.filter(user=request.user)
-    user = request.user.username
-    context = {'images': images, 'user': user}
+    #user = request.user.username
+    context = {'images': images}
     return render(request, 'index.html', context)
 
 

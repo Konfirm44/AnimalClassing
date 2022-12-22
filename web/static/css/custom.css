@@ -17,3 +17,12 @@
   text-align: center;
   padding-right: 15rem;
 }
+
+.submit_long_button{
+padding-left: 4.6rem !important;  
+padding-right: 4.6rem !important;
+}
+
+.centerd_form{
+  text-align: center
+}
