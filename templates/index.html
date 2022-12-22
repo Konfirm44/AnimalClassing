@@ -15,13 +15,17 @@
             <thead>
                 <tr>
                     <th>Title</th>
+                    <th>Added</th>
                     <th>Classification</th>
+                    <th>Classified</th>
                 </tr>
             </thead>
             <!-- <tfoot>
                 <tr>
                     <th>Title</th>
+                    <th>Added</th>
                     <th>Classification</th>
+                    <th>Classified</th>
                 </tr>
             </tfoot> -->
             <tbody>
@@ -29,12 +33,16 @@
                     {% for n in images %}
                     <tr>
                         <td><a href="/media/{{ n.image }}/">{{ n.title }}</a></td>
+                        <td>{{ n.dateAdded }}</td>
                         <td>{{ n.classification }}</td>
+                        <td>{{ n.dateClassified }}</td>
                     </tr>
                     {% endfor %}
                 {% else %}
                     <td>Brak zdjęć</td>
+                    <td>Brak daty dodania</td>
                     <td>Brak klasyfikacji</td>
+                    <td>Brak daty klasyfikacji</td>
                 {% endif %}
                
             </tbody>
