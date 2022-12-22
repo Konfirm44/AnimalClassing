@@ -38,6 +38,7 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+#    'django_extensions',   # enables "manage.py show_urls" to print URL tree, needs "pip install django-extensions" 
 ]
 
 MIDDLEWARE = [
